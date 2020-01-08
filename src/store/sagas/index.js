@@ -9,6 +9,7 @@ import {
 
 export function* watchAuth() {
   yield all([
+    // with all, they all run concurrently.
     takeEvery(actionTypes.AUTH_CHECK_TIMEOUT, checkAuthTimeoutSaga),
     takeEvery(actionTypes.AUTH_INITIATE_LOGOUT, logoutSaga),
     takeEvery(actionTypes.AUTH_USER, authUserSaga),
